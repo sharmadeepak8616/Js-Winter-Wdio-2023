@@ -2,17 +2,17 @@
     Send collaborator request to Ahsan or I (based on Lab session)
         Ahsan's email:  ahsan@technosoftacademy.io
         Deepak's email: deepak@technosoftacademy.io
-2. Clone the new repo in local
-3. Go in to the new repo in local
-4. Create new branch
-5. Checkout on the new-branch
-6. Create node project
+2. In terminal/GitBash: Clone the new repo in local
+3. In terminal/GitBash: Go in to the new repo in local
+4. In terminal/GitBash: Create new branch
+5. In terminal/GitBash: Checkout on the new-branch
+6. In terminal/GitBash: Create node project
     Command: npm init –y
-7. Install WebDriver-IO cli
+7. In terminal/GitBash: Install WebDriver-IO cli
     Command: npm install @wdio/cli
-8. Set up wdio config file
+8. In terminal/GitBash: Set up wdio config file
     Command: npx wdio config
-    ? A project named "winter-wdio-2023" was detected at "/Users/deepaksharma/Documents/git/Winter-Wdio-2023", 
+    ? A project named "js-winter-wdio-2023" was detected at "/Users/deepaksharma/Documents/git/Js-Winter-Wdio-2023", 
     correct? Yes
     ? Where should your tests be launched? local - for e2e testing of web and mobile applications
     ? Where is your automation backend located? On my local machine
@@ -24,9 +24,9 @@
     ? Do you want to add a service to your test setup? chromedriver
     ? What is the base url? https://www.facebook.com
     ? Do you want me to run `npm install` Yes
-9. Install chai
+9. In terminal/GitBash: Install chai
     Command: npm install chai
-10. Install moment
+10. In terminal/GitBash: Install moment
     Command: npm install moment
 11. Open the project in Visual Studio
 12. Create .gitignore file
@@ -37,9 +37,19 @@
     specs: [
         './test/specs/Class1/sampleRun.js'
     ],
-17. Add folders/files in the project as demo-ed in the class
-18. Add testcase in the sampleRun.js as demo-ed in the class
-19. Run the testcase, using command:
+17. In project folder: Create folder (name: test)
+18. In above created folder(test): Create specs (name: specs)
+19. In above created folder (specs): Create .js file (name: sampleRun.js)
+20. In above create file (sampleRun.js): Add below code
+    const { describe, it } = require("mocha");
+
+    describe('Launch Page', () => {
+        it('Verify we can launch a page', async () => {
+            await browser.url('https://www.amazon.com');
+            await browser.pause(10000);
+        })
+    })
+21. Run the testcase, using command:
     npx wdio wdio.conf.js
 
 
