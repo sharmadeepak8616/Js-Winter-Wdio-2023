@@ -11,10 +11,12 @@ describe('basic locator strategies', () => {
 
         // 2. Type (abcd@gmail.com) in the Email or phone number field/element
         const loginEmailElement = await $('#email');
+            // $(findElement) has to find a webElement where id-attribute = 'email'
         await loginEmailElement.setValue('abcd@gmail.com');
 
         // 3. Type (abcd@1234) in the Password field/element
         const loginPasswordElement = await $('#pass');
+            // $(findElement) has to find a webElement where id-attribute = 'pass'
         loginPasswordElement.setValue('abcd@1234');
         
         await browser.pause(10000);
