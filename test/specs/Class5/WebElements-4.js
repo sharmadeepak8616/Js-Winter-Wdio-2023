@@ -52,9 +52,6 @@
  * 
  */
 
-
-
-
 // Steps to find and interact with a webElement
 /**
  * 1. Find the unique locator strategy to find webElement in the DOM
@@ -64,6 +61,47 @@
 
 // To find webElement
 //      function: $
+
+// Functions to interact with webElement:
+/**
+ * 1. type
+ *      function: setValue()
+ *      input: String-input which is the text that we want to type
+ * 
+ * 2. click
+ *      function: click()
+ * 
+ * 3. to find if webElement is enabled
+ *      function: isEnabled()
+ *      if the webElement is enabled
+ *          function returns true
+ *      otherwise
+ *          function returns false
+ * 
+ * 4. to find if a webElement is selected
+ *      function: isSelected()
+ *      if the webElement is selected
+ *          function returns true
+ *      otherwise
+ *          function returns false
+ * 
+ * 5. to find if a webElement is displayed
+ *      function: isDisplayed()
+ *      if the webElement is displayed
+ *          function returns true
+ *      otherwise
+ *          function returns false
+ * 
+ * 6. to get the value of any attribute
+ *      function: getAttribute()
+ *      input: attribute-name
+ *      returns the attribute's value as a string
+ * 
+ * 7. to get the text-value
+ *      function: getText()
+ *      returns the text-value as a string
+ *      
+ */
 
 // Functions to interact with webElement:
 /**
@@ -232,6 +270,50 @@
  * 
  */
 
+// Indirect xpath (advanced xpath)
+/**
+ * chained xpath (using parent-tag, grand-parent-tag and so on...)
+ * 
+ *  (//a[@data-from-string="locationCard"])[5]//span
+ *  //div[@class="uitk-menu-trigger"]//button
+ *  //div[@class="uitk-menu-trigger"]//button[@aria-label="Going to"]
+ *
+ */
+// Xpath Axes
+/**
+ * 1. following-sibling (sibling starting-tags which appear in the dom after the tag)
+ *      //tagName[condition(s)]/following-sibling::tag2[condition(s)]
+ * 
+ *      (//h2[text()="Weather Result"]/following-sibling::div//div[@role="heading"]//span)[1]
+ *      //label[starts-with(text(),"Fem")]/following-sibling::input
+ *      //label[starts-with(text(),"Fem")]/following-sibling::*
+ *      //label[text()="Going to"]/following-sibling::button
+ * 
+ * 2. preceding-sibling (sibling starting-tags which appear in the dom before the tag)
+ *      //tagName[condition(s)]/preceding-sibling::tag2[condition(s)]
+ * 
+ *      //div[text()="Going to"]/preceding-sibling::button
+ *  
+ * 3. following (all starting-tags appear in the dom after the tag)
+ *      //tagName[condition(s)]/following::tag2[condition(s)]
+ * 
+ * 
+ * 4. preceding (all starting-tags appear in the dom before the tag)
+ *      //tagName[condition(s)]/preceding::tag2[condition(s)]
+ * 
+ * 
+ * 5. parent (to go to parent-tag from chaild-tag)
+ *      //tagName[condition(s)]/parent::tag2[condition(s)]
+ * 
+ *      //input[@id="date_form_field"]/parent::*
+ *      
+ *      .. can also be used like parent-axes
+ *      //input[@id="date_form_field"]/..
+ * 
+ * 
+ */
+
+
 // Link
 /**
  *      always have a-tag
@@ -246,4 +328,3 @@
  * Text of a-tag = Messenger
  * 
  */
-
