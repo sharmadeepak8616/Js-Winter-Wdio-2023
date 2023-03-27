@@ -122,7 +122,7 @@ describe('findElements function', () => {
      * 5. Select Apr-10 as checkout date
      */
 
-    it('Calendar: Verify user can dates from the calendar', async () => {
+    it.only('Calendar: Verify user can dates from the calendar', async () => {
         // 1. Launch hotels.com
         await browser.url('https://www.hotels.com/')
         await browser.pause(2000);
@@ -148,7 +148,33 @@ describe('findElements function', () => {
         await browser.pause(2000);
 
         // 4. Select Apr-4 as checkin date
-        const allDates = await $$('//h2[text()="April 2023"]/following-sibling::table//button');
+            const monthYear = 'August 2023';
+            const previousMonthArrowLocator = '(//button[@data-stid="date-picker-paging"])[1]';
+            const nextMonthArrowLocator = '(//button[@data-stid="date-picker-paging"])[2]';
+            const leftMonthHeadingLocator = '(//div[@data-stid="date-picker-month"])[1]//h2';
+            const isPreviousMonthArrowEnabled = await $(previousMonthArrowLocator).isEnabled();
+            for (let i=1; i<=12 ; i++) {
+                const monthHeading = await $(leftMonthHeadingLocator).getText();
+                console.log(`\n\n i -> ${i} --- monthHeading -> ${monthHeading}`);
+                console.log(monthHeading.toLowerCase().localeCompare(monthYear.toLowerCase()));
+                if(monthHeading.toLowerCase().localeCompare(monthYear.toLowerCase()) !== 0) {
+                    if(i === 1 && isPreviousMonthArrowEnabled) {
+                        console.log('In if-block');
+                        await $(previousMonthArrowLocator).click();
+                    } else {
+                        await $(nextMonthArrowLocator).click();
+                        console.log('In else-block');
+                    }
+                } else {
+                    console.log('In OUTER else-block');
+                    break;
+                }
+                await browser.pause(1000);
+            }
+
+        await browser.pause(10000);
+
+        const allDates = await $$('//h2[text()="August 2023"]/following-sibling::table//button');
         for (const dateElement of allDates) {
             const dateValue = await dateElement.getAttribute('data-day');
             if (dateValue.localeCompare("4") === 0) {
