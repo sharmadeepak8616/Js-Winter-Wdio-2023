@@ -40,16 +40,16 @@ describe('WebDriver IO Code Test', () => {
 
         // 5. -> Verify Form is blank
         const emailInput = await $('#signupFormEmailInput').getAttribute('value');
-        expect(emailInput, 'Email address input is blank').to.equal('');
+        expect(emailInput, 'Email address input is NOT blank').to.equal('');
         
         const fNameInput = await $('#signupFormFirstNameInput').getAttribute('value');
-        expect(fNameInput, 'First Name input is blank').to.equal('');
+        expect(fNameInput, 'First Name input is NOT blank').to.equal('');
 
         const lNameInput = await $('#signupFormLastNameInput').getAttribute('value');
-        expect(lNameInput, 'Last Name input is blank').to.equal('');
+        expect(lNameInput, 'Last Name input is NOT blank').to.equal('');
 
         const passwordInput = await $('#signupFormPasswordInput').getAttribute('value');
-        expect(passwordInput, 'Password input is blank').to.equal('');
+        expect(passwordInput, 'Password input is NOT blank').to.equal('');
 
         // 6. -> Verify Continue button is NOT enabled
         const isContinueBtnEnabled = await $('#signupFormSubmitButton').isEnabled();
